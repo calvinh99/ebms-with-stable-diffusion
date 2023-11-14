@@ -1,0 +1,21 @@
+log_root: 'logs'
+seed: 999
+lr: 1e-5
+ebm_module: 'ebms.cnn_mlp' # TODO: can abstract this further
+conv_layers:
+  - [4, 4, 4, 2, 1] # 4, 32, 32
+  - [4, 4, 4, 2, 1] # 4, 16, 16
+  - [4, 4, 4, 2, 1] # 4, 8, 8
+  - [4, 4, 4, 2, 1] # 4, 4, 4
+fc_layers:
+  - [64, 128]
+  - [128, 256]
+  - [256, 512]
+  - [512, 1024]
+  - [1024, 1]
+sigma: 3e-2
+n_iters: 10000
+m: 64 # mini batch size
+K: 100 # MCMC steps
+step_size: 0.3
+dataset_module: 'datasets.cifar10'

@@ -1,8 +1,10 @@
 .ipynb_checkpoints/
 __pycache__/
-myenv/
+
+# python environment
 ebmenv/
 
-training/
+# big files
 data/
-models/
+logs/
+

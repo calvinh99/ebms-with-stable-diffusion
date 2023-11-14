@@ -1,0 +1,10 @@
+log_root: 'logs'
+seed: 999
+lr: 1e-5
+sigma: 3e-2
+n_iters: 10000
+m: 64 # mini batch size
+K: 100 # MCMC steps
+step_size: 0.6
+dataset_module: 'datasets.cifar10'
+ebm_module: 'ebms.downsample_mlp' # TODO: can abstract this further

@@ -1,0 +1,19 @@
+log_root: 'logs'
+seed: 999
+lr: 2e-4
+ebm_module: 'ebms.cnn_mlp'
+conv_layers: [] # no cnn
+fc_layers:
+  - [4096, 8192] # input size 4x32x32
+  - [8192, 16384]
+  - [16384, 2048]
+  - [2048, 256]
+  - [256, 1]
+sigma: 3e-2 # data noise
+mcmc_noise: 1e-4 # sampling noise coefficient
+n_iters: 10000
+m: 64 # mini batch size
+K: 30 # MCMC steps
+step_size: 0.6
+dataset_module: 'datasets.cifar10_256'
+dtype: 'float16'

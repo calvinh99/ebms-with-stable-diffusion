@@ -1,0 +1,17 @@
+log_root: 'logs'
+seed: 999
+lr: 1e-5
+ebm_module: 'ebms.cnn_mlp' # TODO: can abstract this further
+conv_layers: [] # no cnn
+fc_layers:
+  - [64, 128] # using 32by32 cifar 10, latent is 4, 4, 4, which is 64
+  - [128, 256]
+  - [256, 512]
+  - [512, 1024]
+  - [1024, 1]
+sigma: 3e-2 # data noise
+n_iters: 10000
+m: 64 # mini batch size
+K: 60 # MCMC steps - TODO: lowered to 30 from 100
+step_size: 0.3 # just a test 
+dataset_module: 'datasets.cifar10_32'

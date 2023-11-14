@@ -1,0 +1,19 @@
+log_root: 'logs'
+seed: 999
+lr: 1e-5
+ebm_module: 'ebms.cnn_mlp' # TODO: can abstract this further
+conv_layers:
+  - [4, 64, 3, 1, 1] # 64, 64, 64
+  - [64, 128, 4, 2, 1] # 128, 32, 32
+  - [128, 256, 4, 2, 1] # 256, 16, 16
+  - [256, 512, 4, 2, 1] # 512, 8 , 8
+  - [512, 64, 4, 2, 1] # 64 x 4 x 4
+fc_layers:
+  - [1024, 512]
+  - [512, 1]
+sigma: 3e-2
+n_iters: 10000
+m: 64 # mini batch size
+K: 100 # MCMC steps
+step_size: 0.5 # for the first 10k iterations it was 1, now let's change to 0.5 for 10k to 20k
+dataset_module: 'datasets.cifar10'

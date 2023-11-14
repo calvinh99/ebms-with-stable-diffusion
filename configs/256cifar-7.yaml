@@ -1,0 +1,17 @@
+log_root: 'logs'
+seed: 999
+lr: 2e-4
+ebm_module: 'ebms.cnn_mlp'
+conv_layers: [] # input_channels, output_channels, kernel_size, stride, padding
+fc_layers:
+  - [4096, 2000] # latent code 4x32x32
+  - [2000, 1000]
+  - [1000, 300]
+  - [300, 1]
+sigma: 0 # data noise
+mcmc_noise: 1e-1 # sampling noise coefficient
+n_iters: 100000
+m: 64 # mini batch size
+K: 100 # MCMC steps
+step_size: 0.6
+dataset_module: 'datasets.cifar10_256'
